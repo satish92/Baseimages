@@ -1,0 +1,7 @@
+FROM alpine:latest
+RUN apk add nginx apache2 && adduser -D -g 'www' www' && adduser -g "nginx user" -h /home/nginx nginx && rc-update add nginx default && rc-service nginx start
+ADD nginx2.conf /etc/nginx/conf.d
+WORKDIR /home/nginx/
+EXPOSE 80 8080
+EXPOSE 443 8443
+ENTRYPOINT /bin/bash
