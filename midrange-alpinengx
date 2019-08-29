@@ -1,5 +1,13 @@
 FROM alpine:latest
-RUN apk add nginx apache2 && adduser -D -g 'www' www' && adduser -g "nginx user" -h /home/nginx nginx && rc-update add nginx default && rc-service nginx start
+ENV USER=nginx
+ENV UID=50
+ENV GID=51
+RUN apk add nginx apache2
+RUN addgroup --gid "$GID" "$USER" \
+    && adduser --disabled-password --home /home/nginx --uid "$UID" "USER"
+RUN adduser -g "nginx user" -h /home/nginx nginx
+RUN rc-update add nginx default
+RUN rc-service nginx start
 ADD nginx2.conf /etc/nginx/conf.d
 WORKDIR /home/nginx/
 EXPOSE 80 8080
