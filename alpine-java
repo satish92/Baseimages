@@ -1,6 +1,0 @@
-FROM alpine:latest
-RUN apk update
-LABEL os=centos
-LABEL version=1.0
-WORKDIR /opt
-USER skumar21

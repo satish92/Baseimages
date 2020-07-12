@@ -1,6 +1,0 @@
-FROM ubuntu:latest
-RUN apt-get update
-RUN apt-get install -y nginx 
-RUN mkdir -p /opt/nginx
-EXPOSE 80 443
-

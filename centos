@@ -1,6 +1,0 @@
-FROM centos:latest
-RUN  yum install httpd -y && rm -f /etc/httpd/httpd.conf
-RUN mkdir -p /opt/satish
-ADD httpd.conf /etc/httpd/httpd.conf
-VOLUME ["/var/dockerlv0", "/var/log"]
-

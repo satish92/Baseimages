@@ -1,2 +1,0 @@
-FROM nwms/httpd:latest
-EXPOSE 8080 80
